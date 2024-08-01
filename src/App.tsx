@@ -27,9 +27,9 @@ export function App() {
     transactionsByEmployeeUtils.invalidateData();
 
     await employeeUtils.fetchAll();
+    setIsLoading(false); // This fixes Bug 5 by ensuring that we don't wait until
+    // new transactions are loaded to stop displaying the loading text
     await paginatedTransactionsUtils.fetchAll();
-
-    setIsLoading(false);
   }, [employeeUtils, paginatedTransactionsUtils, transactionsByEmployeeUtils]);
 
   const loadTransactionsByEmployee = useCallback(
