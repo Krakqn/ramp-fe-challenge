@@ -18,7 +18,7 @@ export const InputCheckbox: InputCheckboxComponent = ({
           "RampInputCheckbox--label-disabled": disabled,
         })}
         onClick={() => onChange(!checked)}
-        // This fixes Bug #2
+        // This fixes Bug 2
         // It basically toggles "checked"
         // properly
       />
