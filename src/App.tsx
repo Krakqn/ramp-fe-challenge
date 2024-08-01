@@ -76,7 +76,7 @@ export function App() {
             // so when the string is empty
             // (ie we want to view all employee ids)
             // we just run loadAllTransactions() instead.
-            if (newValue.id == "") {
+            if (newValue.id === "") {
               await loadAllTransactions();
               toggleViewMoreVisible(true);
             } else {
