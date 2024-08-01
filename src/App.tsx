@@ -15,7 +15,8 @@ export function App() {
   const { data: transactionsByEmployee, ...transactionsByEmployeeUtils } =
     useTransactionsByEmployee();
   const [isLoading, setIsLoading] = useState(false);
-  const [viewMoreVisible, toggleViewMoreVisible] = useState(true);
+  const [viewMoreVisible, toggleViewMoreVisible] = useState(true); // This fixes Bug 6 by ensuring
+  // that we don't display the view more button when there are no more pages left
 
   const transactions = useMemo(
     () => paginatedTransactions?.data ?? transactionsByEmployee ?? null,
@@ -91,7 +92,7 @@ export function App() {
           <Transactions transactions={transactions} />
 
           {transactions !== null &&
-            viewMoreVisible &&
+            viewMoreVisible && // I accidentally ended up fixing Bug 6 earlier by doing this
             paginatedTransactions?.nextPage !== null && (
               <button
                 className="RampButton"
